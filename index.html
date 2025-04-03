@@ -24,37 +24,155 @@
 
     <!-- 主内容区 -->
     <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold text-gray-800 mb-4">欢迎来到导航页</h1>
-        <p class="text-gray-600 mb-8">这里可以放置各类链接，方便你快速访问不同的页面。</p>
-
-        <!-- 链接卡片 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                <i class="fa-solid fa-globe text-blue-600 text-3xl mb-4"></i>
-                <h2 class="text-xl font-bold text-gray-800 mb-2">本地导航</h2>
-                <p class="text-gray-600 mb-4">Homer</p>
-                <a href="http://192.168.31.136:8080/" class="text-blue-600 hover:underline">访问网站</a>
+            <!-- AI 部分 -->
+            <div class="col-span-full md:col-span-1" id="aiSection">
+                <h2 class="group-title flex items-center mb-4">
+                    <i class="fa-fw fa fa-film mr-2"></i> AI
+                </h2>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                <i class="fa-solid fa-book text-green-600 text-3xl mb-4"></i>
-                <h2 class="text-xl font-bold text-gray-800 mb-2">网站 2</h2>
-                <p class="text-gray-600 mb-4">这是网站 2 的描述信息。</p>
-                <a href="#" class="text-blue-600 hover:underline">访问网站</a>
+            <!-- 影音娱乐部分 -->
+            <div class="col-span-full md:col-span-1" id="entertainmentSection">
+                <h2 class="group-title flex items-center mb-4">
+                    <i class="fa-fw fa fa-film mr-2"></i> 影音娱乐
+                </h2>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                <i class="fa-solid fa-camera text-yellow-600 text-3xl mb-4"></i>
-                <h2 class="text-xl font-bold text-gray-800 mb-2">网站 3</h2>
-                <p class="text-gray-600 mb-4">这是网站 3 的描述信息。</p>
-                <a href="#" class="text-blue-600 hover:underline">访问网站</a>
+            <!-- 实用工具部分 -->
+            <div class="col-span-full md:col-span-1" id="toolsSection">
+                <h2 class="group-title flex items-center mb-4">
+                    <i class="fa-fw fa fa-tools mr-2"></i> 实用工具
+                </h2>
+            </div>
+            <!-- 开发资源部分 -->
+            <div class="col-span-full md:col-span-1" id="devResourcesSection">
+                <h2 class="group-title flex items-center mb-4">
+                    <i class="fa-fw fa fa-code mr-2"></i> 开发资源
+                </h2>
+            </div>
+            <!-- 系统监控部分 -->
+            <div class="col-span-full md:col-span-1" id="monitoringSection">
+                <h2 class="group-title flex items-center mb-4">
+                    <i class="fa-fw fa fa-chart-bar mr-2"></i> 系统监控
+                </h2>
+            </div>
+            <!-- 群晖部分 -->
+            <div class="col-span-full md:col-span-1" id="synologySection">
+                <h2 class="group-title flex items-center mb-4">
+                    <i class="fa-fw fa fa-chart-bar mr-2"></i> 群晖
+                </h2>
             </div>
         </div>
     </div>
 
-    <!-- 页脚 -->
-    <footer class="bg-gray-200 p-4 text-center text-gray-600">
-        <p>&copy; 2025 导航页. 保留所有权利.</p>
-    </footer>
+    <script>
+        // 集中管理网址信息
+        const urls = {
+            ai: [
+                { url: "http://192.168.31.136:3000/", title: "Webui", icon: "fa-globe" },
+                { url: "https://selfh.st/icons/", title: "图标", icon: "fa-play-circle" },
+                { url: "https://github.com/homarr-labs/dashboard-icons/blob/main/ICONS.md", title: "图标github", icon: "fa-napster" }
+            ],
+            entertainment: [
+                { url: "http://ub4.zin6.site:2283", title: "Immich", icon: "fa-globe" },
+                { url: "http://192.168.31.12:801/", title: "TagVideo", icon: "fa-play-circle" },
+                { url: "http://192.168.31.136:4533/", title: "Navidrom", icon: "fa-napster" }
+            ],
+            tools: [
+                { url: "http://ub4.zin6.site:9000", title: "Portainer", icon: "fa-bars-progress" },
+                { url: "http://ub4.zin6.site:9876/", title: "DDNS-GO", icon: "fa-circle-notch" },
+                { url: "https://fontawesome.com/search?q=pro&o=r&ip=classic%2Cbrands", title: "图标在线搜索", icon: "fa-cloud" }
+            ],
+            devResources: [
+                { url: "https://github.com", title: "GitHub", icon: "fa-github" },
+                { url: "http://vscode.local:8443", title: "VSCode Web", icon: "fa-code" },
+                { url: "https://hub.docker.com", title: "Docker Hub", icon: "fa-docker" }
+            ],
+            monitoring: [
+                { url: "http://192.168.31.1/", title: "路由器", icon: "fa-bars-progress" },
+                { url: "http://ub4.zin6.site:61208/", title: "Glance监测", icon: "fa-bars-progress" },
+                { url: "http://ub4.zin6.site:61208/", title: "Glance监测", icon: "fa-bars-progress" }
+            ],
+            synology: [
+                { url: "http://192.168.31.82:5000/", title: "j1900", icon: "fa-bars-progress" },
+                { url: "http://192.168.31.136:5000/", title: "8845HS", icon: "fa-bars-progress" }
+            ]
+        };
+
+        // 生成链接的函数
+        function createLink(item) {
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.target = "_blank";
+            link.rel = "noreferrer";
+            link.classList.add("custom-link");
+
+            const card = document.createElement('div');
+            card.classList.add("bg-white", "p-6", "rounded-lg", "shadow-md", "hover:shadow-lg", "transform", "hover:scale-105", "transition", "duration-300");
+
+            const media = document.createElement('div');
+            media.classList.add("media", "no-subtitle", "flex", "items-center");
+
+            const mediaLeft = document.createElement('div');
+            mediaLeft.classList.add("media-left", "mr-4");
+
+            const figure = document.createElement('figure');
+            figure.classList.add("image", "is-48x48");
+
+            const icon = document.createElement('i');
+            icon.classList.add("fa-fw", `fa-${item.icon}`, "text-32px");
+            figure.appendChild(icon);
+
+            mediaLeft.appendChild(figure);
+            media.appendChild(mediaLeft);
+
+            const mediaContent = document.createElement('div');
+            mediaContent.classList.add("media-content");
+
+            const title = document.createElement('p');
+            title.classList.add("title", "text-lg", "font-bold");
+            title.textContent = item.title;
+
+            mediaContent.appendChild(title);
+            media.appendChild(mediaContent);
+
+            card.appendChild(media);
+            link.appendChild(card);
+
+            return link;
+        }
+
+        // 将链接插入到对应的部分
+        function insertLinks() {
+            const aiSection = document.getElementById('aiSection');
+            const entertainmentSection = document.getElementById('entertainmentSection');
+            const toolsSection = document.getElementById('toolsSection');
+            const devResourcesSection = document.getElementById('devResourcesSection');
+            const monitoringSection = document.getElementById('monitoringSection');
+            const synologySection = document.getElementById('synologySection');
+
+            urls.ai.forEach(item => aiSection.appendChild(createLink(item)));
+            urls.entertainment.forEach(item => entertainmentSection.appendChild(createLink(item)));
+            urls.tools.forEach(item => toolsSection.appendChild(createLink(item)));
+            urls.devResources.forEach(item => devResourcesSection.appendChild(createLink(item)));
+            urls.monitoring.forEach(item => monitoringSection.appendChild(createLink(item)));
+            urls.synology.forEach(item => synologySection.appendChild(createLink(item)));
+        }
+
+        // 页面加载完成后执行插入链接的操作
+        window.onload = insertLinks;
+    </script>
+
+    <style>
+        /* 自定义链接颜色类，正常状态为蓝色，hover 状态为深一点的蓝色 */
+       .custom-link {
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+       .custom-link:hover {
+            color: #0056b3;
+        }
+    </style>
 </body>
 
 </html>
-    
