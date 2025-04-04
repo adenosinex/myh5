@@ -94,6 +94,7 @@
             ],
             monitoring: [
                 { url: "http://192.168.31.1/", title: "路由器", icon: "fa-bars-progress" },
+                { url: "http://192.168.31.82:8123/dashboard-home/0", title: "HA", icon: "fa-bars-progress" },
                 { url: "http://ub4.zin6.site:61208/", title: "Glance监测", icon: "fa-bars-progress" },
                 { url: "http://ub4.zin6.site:61208/", title: "Glance监测", icon: "fa-bars-progress" }
             ],
@@ -107,7 +108,7 @@
         function createLink(item) {
             const link = document.createElement('a');
             link.href = item.url;
-            link.target = "_blank";
+            // link.target = "_blank";
             link.rel = "noreferrer";
             link.classList.add("custom-link");
 
